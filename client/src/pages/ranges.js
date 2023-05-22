@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Ranges = () => {
   return (
     <>
       <div class="header">
         <h2>Homes by Price Range</h2>
-        <button id="home-btn">Home</button>
+        <Link id="home-btn" to={'/'}>Home</Link>
       </div>
       <div class="main-div">
         <div class="prop-div">

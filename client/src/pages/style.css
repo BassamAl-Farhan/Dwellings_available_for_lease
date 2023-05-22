@@ -1,0 +1,74 @@
+/* cities, popular, ranges */
+
+
+
+.prop-div {
+    border: 2px solid black;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+}
+
+.cityPic {
+    width: 400px;
+    height: 200px;
+}
+
+/* Main Page */
+
+.MainShell {
+    width: auto;
+}
+
+.MainBody {
+    display: flex;
+}
+
+.MainCubes {
+    text-align: center;
+
+}
+
+.CityPic {
+    width: 200px;
+    height: 200px;
+}
+
+/* dashboard */
+.DShell {
+    width: auto;
+    border: 5px solid black;
+    height: 250px;
+    background-color: lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.DLeft {
+    font-family: cursive;
+    font-weight: bolder;
+    font-style: italic;
+    color: red;
+}
+
+.DPic {
+    border-radius: 10px;
+    border: 2px solid darkgray;
+    box-shadow: 5px 5px;
+    width: 100px;
+    height: 100px;
+}
+
+.DCenter {
+    margin-right: 170px;
+    font-family: cursive;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.DRight {
+    font-family: cursive;
+    font-weight: bold;
+    font-style: italic;
+}

@@ -1,11 +1,13 @@
 import React from "react";
+import './style.css';
+import { Link } from 'react-router-dom';
 
 const Popular = () => {
   return (
     <>
       <div class="header">
         <h2>Popular places to Buy</h2>
-        <button id="home-btn">Home</button>
+        <Link id="home-btn" to={'/'}>Home</Link>
       </div>
       <div class="main-div">
         <div class="prop-div">
