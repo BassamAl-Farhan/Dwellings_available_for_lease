@@ -1,6 +1,6 @@
 
 from flask_app.config.mysqlconnection import connectToMySQL
-mydb = 'projectsolo'
+mydb = 'groupproject'
 from flask_app import app
 from flask import flash
 
@@ -16,7 +16,6 @@ class Users:
         self.email = data['email']
         self.password = data['password']
         self.created_at = data['created_at']
-        self.updated_at = data['updated_at']
 
 
     @classmethod
