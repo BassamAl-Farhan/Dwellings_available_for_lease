@@ -1,5 +1,11 @@
-from flask_app import app
-from flask_app.controllers import controllers_dashboard
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+app.secret_key="abcd" # This is only needed because I am using sessions. It is not required for the API to work.
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5002)
+#CORS - This allows the React app to connect to the API.
+from flask_cors import CORS
+CORS(app, support_credentials=True)
+
+if __name__=="__main__":    
+    app.run(debug=True)
+

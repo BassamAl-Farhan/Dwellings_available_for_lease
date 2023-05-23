@@ -1,12 +1,17 @@
 from flask_app import app
-from flask import request, redirect, render_template, flash, session
+from flask import session, Flask, request, jsonify
 from flask_app.models.users import Users
-from flask_app.models.dashboard import Dashboard
-from flask_app.models import application
+from flask_app.models.homes import Homes
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 
+
+@app.route('/', methods=['GET'])          
+def get_all_homes():
+    homes = Homes.all()
+    homes_cvt_to_json = [home.to_json() for home in homes]
+    return jsonify(homes_cvt_to_json), 200
 
 
 
