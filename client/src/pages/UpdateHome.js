@@ -44,7 +44,7 @@ const UpdateHome = (props) => {
 
     return(
         <div className='' style={{
-            backgroundImage:`url(${cityscape1})`
+            backgroundImage:`url(${cityscape1})`, color: 'white'
         }}>
         <div className=''>
             <h1>Update Home</h1>
@@ -88,7 +88,7 @@ const UpdateHome = (props) => {
                 <br  /><br  />
                 <input className='btn btn-success' type='submit'/>
                 <br  /><br  />
-                <Link className='btn' to={'/displayPage'}>Home</Link>
+                <Link className='btn' to={'/'} style={{ color:'white'}}>Home</Link>
                 <br  /><br  />
             </form>
         </div>

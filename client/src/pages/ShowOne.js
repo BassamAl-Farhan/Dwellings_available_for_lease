@@ -32,11 +32,11 @@ const OneHome = (props) => {
 
     return (
         <div className='' style={{
-            backgroundImage:`url(${cityscape1})`
+            backgroundImage:`url(${cityscape1})`, color: 'white'
         }}>
             <Dashboard/>
-            <h1 style={{ backgroundImage: `url(${cityscape1})`}}>Here's your Home!</h1>
-            <Link className='' to={`/main`}>Main</Link>
+            <h1 style={{ backgroundImage: `url(${cityscape1})`, color: 'white'}}>Here's your Home!</h1>
+            <Link className='' to={`/`} style={{ color: 'white'}}>Home</Link>
         <div className=''>
             <h3>Number of Rooms: {home.numberOfRooms}</h3>
             <h3>Price Range: {home.priceRange}</h3>

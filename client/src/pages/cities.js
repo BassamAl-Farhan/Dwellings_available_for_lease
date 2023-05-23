@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './style.css';
 import Houston from '../images/Houston.jpg';
 import SeattleScape from '../images/seattlescape.jpg';
@@ -8,7 +9,21 @@ import Boston from '../images/Boston.jpg';
 import LasVegas from '../images/LasVegas.jpg';
 
 
-const Cities = () => {
+const Cities = (props) => {
+
+  const navigate = useNavigate();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:8000/api/newHome')
+        .then((res) => {
+            navigate('/allHomes')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+};
+
   return (
     <>
       <div class="header">
@@ -16,7 +31,7 @@ const Cities = () => {
         <Link id="home-btn" to={'/'}>Home</Link>
       </div>
       <div class="main-div">
-        <div class="prop-div">
+        <div class="prop-div" >
           <img class='cityPic'
             src={SeattleScape}
             alt="Home pic"
@@ -25,7 +40,11 @@ const Cities = () => {
           <h5>3 bedroom</h5> 
           <h5>$950,000</h5> 
           <h5>A NW Beauty! Ready for immediate move in.</h5>
-          <button id="add-button">Add to Library</button>
+          <button id="submit" onSubmit={submitHandler} >Add to Library</button>
+          <br  /><br  />
+          <Link to={'/UpdateHome/:id'}>Update</Link>
+          <br  /><br  />
+          <Link to={'/showOne/:id'}>Show One</Link>
         </div>
     <hr/>
         <div class="prop-div">
@@ -37,7 +56,11 @@ const Cities = () => {
           <h5>4 bedroom</h5>
           <h5>$750,000</h5>
           <h5>A Texan Beauty! Ready to move in.</h5>
-          <button id="add-button">Add to Library</button>
+          <button id="submit" onSubmit={submitHandler}>Add to Library</button>
+          <br  /><br  />
+          <Link to={'/UpdateHome/:id'}>Update</Link>
+          <br  /><br  /> 
+          <Link to={'/showOne/:id'}>Show One</Link>
         </div>
         <hr/>
         <div class="prop-div">
@@ -49,7 +72,11 @@ const Cities = () => {
           <h5>4 bedroom</h5>
           <h5>$750,000</h5>
           <h5>High end luxury with a million dollar view! Ready to move in.</h5>
-          <button id="add-button">Add to Library</button>
+          <button id="submit" onSubmit={submitHandler}>Add to Library</button>
+          <br  /><br  />
+          <Link to={'/UpdateHome/:id'}>Update</Link>
+          <br  /><br  />
+          <Link to={'/showOne/:id'}>Show One</Link>
         </div>
         <hr/>
         <div class="prop-div">
@@ -61,7 +88,11 @@ const Cities = () => {
           <h5>6 bedroom</h5>
           <h5>$7950,000</h5>
           <h5>Near many historical sites and great schools. Ready to move in.</h5>
-          <button id="add-button">Add to Library</button>
+          <button id="submit" onSubmit={submitHandler}>Add to Library</button>
+          <br  /><br  />
+          <Link to={'/UpdateHome/:id'}>Update</Link>
+          <br  /><br  />
+          <Link to={'/showOne/:id'}>Show One</Link>
         </div>
         <hr/>
         <div class="prop-div">
@@ -73,7 +104,11 @@ const Cities = () => {
           <h5>2 bedroom</h5>
           <h5>$620,000</h5>
           <h5>Clase to New Vegas with a direct route to winning!!!! Ready to move in.</h5>
-          <button id="add-button">Add to Library</button>
+          <button id="submit" onSubmit={submitHandler}>Add to Library</button>
+          <br  /><br  />
+          <Link to={'/UpdateHome/:id'}>Update</Link>
+          <br  /><br  />
+          <Link to={'/showOne/:id'}>Show One</Link>
         </div>
       </div>
     </>
