@@ -7,7 +7,6 @@ import SeattleScape from '../images/seattlescape.jpg';
 import ModernHouse from '../images/ModernHouse.jpg';
 
 
-
 const Main = () => {
     return (
         <div className="MainShell">
@@ -30,7 +29,7 @@ const Main = () => {
                 </div> 
                 <hr/>
                 <div className="MainCubes">
-                <h1>Search Homes By Price Range</h1>
+                <h1>Search Homes By Price</h1>
                 <Image className='CityPic' src={ModernHouse} alt='...'/>
                 <br  /><br  />
                 <Link className='btn' to={'/ranges'}>Search</Link>

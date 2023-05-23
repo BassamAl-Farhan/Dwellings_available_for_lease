@@ -10,7 +10,6 @@ import LasVegas from '../images/LasVegas.jpg';
 
 
 const Popular = (props) => {
-
   const navigate = useNavigate();
 
   const submitHandler = (e) => {

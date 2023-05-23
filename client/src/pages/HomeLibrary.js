@@ -1,16 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import cityscape1 from '../images/CityScape1.jpg';
-
 
 
 const DisplayAllHomes = (props) => {
     const { id } = useParams();
     const [ home, setHome ]  = useState([]);
-
     const navigate = useNavigate();
-
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/allHomes')
@@ -22,7 +18,6 @@ const DisplayAllHomes = (props) => {
             })
     }, [])
 
-
     const deleteHome = (homeId) => {
         axios.delete('http://localhost:8000/api/allHomes/' + homeId)
         .then(res => {
@@ -32,9 +27,7 @@ const DisplayAllHomes = (props) => {
     };
 
     return (
-        <div className='' style={{
-            backgroundImage: `url(${cityscape1})`
-        }}>
+        <div className='UHMain'>
             {home?.map((home, index) => {
                 return (
                     <div className='details' key={index}>

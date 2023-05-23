@@ -45,30 +45,15 @@
     justify-content: space-evenly;
 }
 
-.DLeft {
+.DBlock {
     font-family: cursive;
     font-weight: bolder;
     font-style: italic;
     color: red;
 }
 
-.DPic {
-    border-radius: 10px;
-    border: 2px solid darkgray;
-    box-shadow: 5px 5px;
-    width: 100px;
-    height: 100px;
-}
+/* Update, Show One, Create Form */
 
-.DCenter {
-    margin-right: 170px;
-    font-family: cursive;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.DRight {
-    font-family: cursive;
-    font-weight: bold;
-    font-style: italic;
+.UHMain {
+    text-align: center;
 }

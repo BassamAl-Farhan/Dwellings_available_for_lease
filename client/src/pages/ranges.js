@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate, useState } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './style.css';
 import Houston from '../images/Houston.jpg';
@@ -21,9 +21,6 @@ const Ranges = (props) => {
             console.log(err)
         })
 };
-
-
-
 
   return (
     <>
