@@ -2,7 +2,7 @@
 from config.mysqlconnection import connectToMySQL
 mydb = 'groupproject'
 from flask import flash
-
+from models.users import user
 
 
 class Homes:
@@ -56,7 +56,7 @@ class Homes:
             city = %(city)s,
             state = %(state)s,
             description = %(description)s,
-            user_id = user_id
+            user_id = %(user_id)s
             
         WHERE 
             id = %(id)s
