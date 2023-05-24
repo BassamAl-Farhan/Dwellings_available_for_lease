@@ -55,17 +55,17 @@ import ModernHouse from '../images/ModernHouse.jpg';
 const Main = () => {
     const [homes, setHomes] = useState([]);
 
-    useEffect(()=> {
+    useEffect(() => {
         fetch("/home").then(
-          res => res.json()
+            res => res.json()
         ).then(
-          data => {
-            setHomes(data)
-            console.log(data)
-        }
+            data => {
+                setHomes(data)
+                console.log(data)
+            }
         )
-      }, [])
-    
+    }, [])
+
 
     return (
         <div className="MainShell">
@@ -99,14 +99,14 @@ const Main = () => {
             <div>
                 <h2>All Homes:</h2>
                 <ul>
-                {homes.map(home => (
-        <div key={home.id}>
-          <h2>{home.city}</h2>
-          <p>Number of Rooms: {home.numberOfRooms}</p>
-          <p>Price Range: {home.priceRange}</p>
-          <p>Description: {home.description}</p>
-        </div>
-      ))}
+                    {homes.map(home => (
+                        <div key={home.id}>
+                            <h2>{home.city}</h2>
+                            <p>Number of Rooms: {home.numberOfRooms}</p>
+                            <p>Price Range: {home.priceRange}</p>
+                            <p>Description: {home.description}</p>
+                        </div>
+                    ))}
 
                 </ul>
             </div>
