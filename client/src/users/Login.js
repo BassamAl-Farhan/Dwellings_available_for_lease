@@ -26,7 +26,6 @@ const Login = (props) => {
             })
     }
 
-
     return (
         <div className='container3' style={{ color:'white',
             backgroundImage: `url(${cityscape1})`

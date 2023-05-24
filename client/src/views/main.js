@@ -50,6 +50,8 @@ import CityScape from '../images/CityScape1.jpg';
 import SeattleScape from '../images/seattlescape.jpg';
 import ModernHouse from '../images/ModernHouse.jpg';
 
+
+
 const Main = () => {
     const [homes, setHomes] = useState([]);
 
