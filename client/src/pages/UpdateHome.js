@@ -14,6 +14,7 @@ const UpdateHome = (props) => {
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/oneHome/'+ id)
+            console.log(id)
             .then(res => {
                 setNumberOfRooms(res.data.numberOfRooms);
                 setPriceRange(res.data.priceRange);

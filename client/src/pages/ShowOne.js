@@ -11,6 +11,7 @@ const OneHome = (props) => {
     
     useEffect(() => {
         axios.get("http://localhost:8000/api/showOne/"+id)
+        console.log()
             .then((res) => {
                 setHome(res.data)
             })

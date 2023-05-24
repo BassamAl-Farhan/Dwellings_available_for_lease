@@ -48,7 +48,7 @@ class Homes:
         return connectToMySQL(mydb).query_db(query, data)
 
     @classmethod
-    def update_homes(cls, data):
+    def update_home(cls, data):
         query = """UPDATE homes
         SET 
             numberOfRooms = %(numberOfRooms)s,
