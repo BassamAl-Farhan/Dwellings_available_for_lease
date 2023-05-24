@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link,useNavigate } from 'react-router-dom';
-import cityscape1 from '../images/CityScape1.jpg';
+
 
 const HomeForm = (props) => {
     const [errors, setErrors] = useState ({})
@@ -13,7 +13,6 @@ const HomeForm = (props) => {
         state: '',
         description: ''
     });
-
 
     const handleInputChange = (e) => {
         setHome({ ...home, [e.target.name]: e.target.value })
@@ -33,12 +32,8 @@ const HomeForm = (props) => {
             })
     }
 
-
-
     return (
-        <div className=''  style={{ color:'white',
-            backgroundImage: `url(${cityscape1})`} }>
-        <div className=''>
+        <div className='UHMain'>
             <form className='w-25' onSubmit={submitHandler}>
                 <h1>Create A New Listing</h1>
 
@@ -81,12 +76,11 @@ const HomeForm = (props) => {
                     <p className='text-danger'>{errors.description.message}</p>:
                     null
                 }
-                <br />
+                <br /><br  />
                 <button className='btn btn-success' >Create</button>
             </form>
             <br  /><br  />
-                <Link className='btn' style={{ color:'white'}} to={'/'}>Home</Link>
-        </div>
+                <Link to={'/'}>Home</Link>
         </div>
     )
 }

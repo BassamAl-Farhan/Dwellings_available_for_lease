@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link,useNavigate, useParams } from 'react-router-dom';
-import cityscape1 from '../images/CityScape1.jpg';
 
 
 const UpdateHome = (props) => {
@@ -12,7 +11,6 @@ const UpdateHome = (props) => {
     const [state, setState] = useState();
     const [description, setDescription] = useState();
     const navigate = useNavigate();
-
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/oneHome/'+ id)
@@ -43,10 +41,8 @@ const UpdateHome = (props) => {
     };
 
     return(
-        <div className='' style={{
-            backgroundImage:`url(${cityscape1})`
-        }}>
-        <div className=''>
+        <div>
+        <div className='UHMain'>
             <h1>Update Home</h1>
             <form className='w-25' onSubmit={updateHome}>
                 <p>
@@ -88,7 +84,7 @@ const UpdateHome = (props) => {
                 <br  /><br  />
                 <input className='btn btn-success' type='submit'/>
                 <br  /><br  />
-                <Link className='btn' to={'/displayPage'}>Home</Link>
+                <Link to={'/'}>Home</Link>
                 <br  /><br  />
             </form>
         </div>

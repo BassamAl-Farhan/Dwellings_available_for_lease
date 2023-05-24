@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-
 const Dashboard = (props) => {
     const navigate = useNavigate()
     const logout = () => {
@@ -15,27 +14,24 @@ const Dashboard = (props) => {
                 console.log(err);
             })
     }
+    
     return (
         <div className='DShell' >
-            <div className='DLeft'>
-
+            <div className='DBlock'>
                 <h1>Dojo Homes</h1>
-
             </div>
-            <div className='DCenter'>
+            <div className='DBlock'>
+                <Link className='btn' to={'/createListing'}>Create Listing</Link>
+                <hr />
                 <Link className='btn' to={'/allHomes'}>Home Library</Link>
                 <hr />
                 <Link className='btn' to={'/register'}>Register</Link>
                 <hr />
                 <Link className='btn' to={'/login'}>Login</Link>
-            </div>
-            <div className='DRight'>
+                <hr />
                 <button className='btn' onClick={logout}>Log out</button>
-                <hr />
-                <Link className='btn' to={'/createListing'}>Create Listing</Link>
-                <hr />
-                <Link className='btn' target='blank' to={'/homeApi'}>Random Home</Link>
             </div>
+            
         </div>
     )
 }
