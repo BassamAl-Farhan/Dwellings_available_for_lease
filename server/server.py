@@ -1,10 +1,11 @@
 from flask import Flask, jsonify, request
 from models.homes import Homes
 from models.users import User
-from flask import flash, redirect, session
+from flask import flash, redirect, session, url_for
 from flask_bcrypt import bcrypt
 
 app = Flask(__name__)
+app.secret_key = 'vdwfdf'
 
 @app.route('/home')
 def members():
@@ -50,9 +51,12 @@ def update_home():
     response = {'message': 'Home created successfully'}
     return jsonify(response)
     # return jsonify(response, home = Homes.register)
-    
-    
-    
+
+@app.route('/logout',methods=['GET', 'POST'])
+def logout():
+    session.clear()
+    return 'done'
+
 @app.route('/create/user', methods=['POST'])
 def create_user():
     data = request.get_json()

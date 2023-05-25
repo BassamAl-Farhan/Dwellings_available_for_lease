@@ -5,15 +5,21 @@ import '../App.css'
 
 const Dashboard = (props) => {
     const navigate = useNavigate()
+
+
+
+
+
     const logout = () => {
-        axios.post('http://localhost:8000/api/logout', {}, { withCredentials: true })
-            .then((res) => {
-                navigate('/')
+        axios.post('/logout')
+            .then(res => {
+                window.location.href = '/register';
             })
             .catch((err) => {
                 console.log(err);
-            })
+            });
     }
+    
     
     return (
         <div className='DShell' >

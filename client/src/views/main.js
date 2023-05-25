@@ -65,6 +65,8 @@ const Main = () => {
                 <ul className='homemainpagediv'>
                     {homes.map(home => (
                         <div className='singlehomemainsearch' key={home.id}>
+                            <Image className='CityPic' src={home.img} alt='...' />
+
                             <h2>{home.city}</h2>
                             <p>Number of Rooms: {home.numberOfRooms}</p>
                             <p>Price Range: {home.priceRange}</p>
