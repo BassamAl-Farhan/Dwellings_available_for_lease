@@ -14,6 +14,8 @@ class Homes:
         self.state = data['state']
         self.description = data['description']
         self.created_at = data['created_at']
+        self.img = data['img']
+        
 
 
     @classmethod
@@ -45,9 +47,9 @@ class Homes:
 
         query = """
         INSERT INTO homes 
-            (numberOfRooms, priceRange, city, state, description) 
+            (numberOfRooms, priceRange, city, state, description, img) 
         VALUES 
-            (%(numberOfRooms)s, %(priceRange)s, %(city)s, %(state)s, %(description)s);
+            (%(numberOfRooms)s, %(priceRange)s, %(city)s, %(state)s, %(description)s, %(img)s);
         """
         return connectToMySQL(mydb).query_db(query, data)
 

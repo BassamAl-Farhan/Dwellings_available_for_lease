@@ -10,28 +10,33 @@ const UpdateHome = (props) => {
     const [city, setCity] = useState();
     const [state, setState] = useState();
     const [description, setDescription] = useState();
+    const [img, setImg] = useState();
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/oneHome/'+ id)
+        axios.get('/get_one/'+ id)
             .then(res => {
                 setNumberOfRooms(res.data.numberOfRooms);
                 setPriceRange(res.data.priceRange);
                 setCity(res.data.city);
                 setState(res.data.state);
                 setDescription(res.data.description);
+                setImg(res.data.img);
+
             })
             .catch(err=> console.log(err))
     }, [])
 
     const updateHome = (e) => {
         e.preventDefault();
-        fetch('/updateHome'+ id, {
+        axios.put('/updateHome', {
             numberOfRooms,
             priceRange,
             city,
             state,
-            description
+            description,
+            id
         })
             .then(res => {
                 console.log(res);
@@ -50,6 +55,7 @@ const UpdateHome = (props) => {
                     <input type='number'
                     name='numberOfRooms'
                     value={numberOfRooms}
+                    placeholder={numberOfRooms}
                     onChange={(e) => { setNumberOfRooms(e.target.value) }} />
                 </p>
                 <p>
@@ -82,6 +88,8 @@ const UpdateHome = (props) => {
                 </p>
                 <br  /><br  />
                 <br  /><br  />
+                <input type='hidden' name='id' value={id}></input>
+                <input type='hidden' name='img' value={img}></input>
                 <input className='btn btn-success' type='submit'/>
                 <br  /><br  />
                 <Link to={'/'}>Home</Link>
