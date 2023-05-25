@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link,useNavigate } from 'react-router-dom';
-
+import '../App.css'
+import Dashboard from './DashBoard';
 
 const HomeForm = (props) => {
     const [errors, setErrors] = useState ({})
     const navigate = useNavigate()
     const [home, setHome] = useState({
-        numberOfRooms: Number(0),
-        priceRange: Number(0),
+        numberOfRooms: 0,
+        priceRange: 0,
         city: '',
         state: '',
         description: ''
@@ -17,25 +18,25 @@ const HomeForm = (props) => {
     const handleInputChange = (e) => {
         setHome({ ...home, [e.target.name]: e.target.value })
     }
-
-    const submitHandler = (e) => {
+const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/newHome', home)
-            .then((res) => {
-                console.log(res)
-                setHome({numberOfRooms:0, priceRange:0, city: "", state: "", description:""})
-                console.log(res)
+        axios.post("/create/home", home)
+            .then(res => {
+                console.log(res);
                 navigate('/')
             })
-            .catch((err) => {
-                setErrors(err)
+            .catch(err => {
+                console.log(err)
             })
     }
 
+
     return (
-        <div className='UHMain'>
+        <div>
+            <Dashboard/>
+ <div className='formclass'>
             <form className='w-25' onSubmit={submitHandler}>
-                <h1>Create A New Listing</h1>
+                <h1 className='title_create'>Create A New Listing</h1>
 
                 <label className='form-label'>Number Of Rooms: </label>
                 <input className='form-control' type="number" onChange={handleInputChange} value={home.numberOfRooms} name='numberOfRooms' />
@@ -44,7 +45,6 @@ const HomeForm = (props) => {
                     <p className='text-danger'>{errors.numberOfRooms.message}</p>:
                     null
                 }
-                <br />
                 <label className='form-label'>Price Range: </label>
                 <input className='form-control' type="number" onChange={handleInputChange} value={home.priceRange} name='priceRange' />
                 {
@@ -52,7 +52,6 @@ const HomeForm = (props) => {
                     <p className='text-danger'>{errors.priceRange.message}</p>:
                     null
                 }
-                <br />
                 <label className='form-label'>City: </label>
                 <input className='form-control' type="text" onChange={handleInputChange} value={home.city} name='city' />
                 {
@@ -60,7 +59,6 @@ const HomeForm = (props) => {
                     <p className='text-danger'>{errors.city.message}</p>:
                     null
                 }
-                <br />
                 <label className='form-label'>State: </label>
                 <input className='form-control' type="text" onChange={handleInputChange} value={home.state} name='state' />
                 {
@@ -68,7 +66,6 @@ const HomeForm = (props) => {
                     <p className='text-danger'>{errors.state.message}</p>:
                     null
                 }
-                <br />
                 <label className='form-label'>Description: </label>
                 <input className='form-control' type="text" onChange={handleInputChange} value={home.description} name='description' />
                 {
@@ -76,12 +73,14 @@ const HomeForm = (props) => {
                     <p className='text-danger'>{errors.description.message}</p>:
                     null
                 }
-                <br /><br  />
-                <button className='btn btn-success' >Create</button>
+                {/* <button className='btn btn-success' >Create</button> */}
+                <button className='btn' type='submit'>Create</button>
             </form>
             <br  /><br  />
                 <Link to={'/'}>Home</Link>
         </div>
+        </div>
+       
     )
 }
 

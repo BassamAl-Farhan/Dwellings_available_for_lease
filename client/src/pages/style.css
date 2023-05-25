@@ -1,22 +1,19 @@
 /* cities, popular, ranges */
 
 
-
+/* 
 .prop-div {
     border: 2px solid black;
     width: 400px;
     height: 500px;
     text-align: center;
 }
+ */
 
-.cityPic {
-    width: 400px;
-    height: 200px;
-}
 
 /* Main Page */
 
-.MainShell {
+/* .MainShell {
     width: auto;
 }
 
@@ -34,28 +31,13 @@
 .CityPic {
     width: 200px;
     height: 200px;
-}
+} */
 
 /* dashboard */
 .DShell {
-    width: auto;
-    border: 5px solid black;
-    height: 250px;
+    width:auto;   
+     border: 2px solid black;
     background-color: lightgrey;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+
 }
 
-.DBlock {
-    font-family: cursive;
-    font-weight: bolder;
-    font-style: italic;
-    color: red;
-}
-
-/* Update, Show One, Create Form */
-
-.UHMain {
-    text-align: center;
-}

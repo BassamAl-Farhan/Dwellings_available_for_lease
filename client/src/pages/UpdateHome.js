@@ -26,7 +26,7 @@ const UpdateHome = (props) => {
 
     const updateHome = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:8000/api/updateHome/'+ id, {
+        fetch('/updateHome'+ id, {
             numberOfRooms,
             priceRange,
             city,

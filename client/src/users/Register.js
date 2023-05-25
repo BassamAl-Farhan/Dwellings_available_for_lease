@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import cityscape1 from '../images/CityScape1.jpg';
-
+import '../App.css'
 
 const Register = (props) => {
     const [errors, setErrors] = useState({})
     const navigate = useNavigate()
     const [user, setUser] = useState({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
-        confirmPassword: ""
     })
 
     const changeHandler = (e) => {
@@ -21,47 +19,35 @@ const Register = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/register', user, { withCredentials: true })
-            .then((res) => {
+        axios.post("/create/user", user)
+            .then(res => {
                 console.log(res);
-                navigate('/displayPage')
+                navigate('/')
             })
-            .catch((err) => {
-                setErrors(err.response.data.error.errors)
-                console.log(err.response.data.error);
+            .catch(err => {
+                console.log(err)
             })
     }
 
     return (
-        <div className='container3' style={{
-            color: 'white',
-            backgroundImage: `url(${cityscape1})`
-        }}>
-            <div className='details3'>
-                <form onSubmit={submitHandler}>
-                    <h1>Register</h1>
-                    <br />
-                    <div>
+            <div className='formclass'>
+                <form className='w-25' onSubmit={submitHandler}>
+                    <h1 className='title_create'>Register</h1>
                         <label>First Name: </label>
-                        <input type="text" onChange={changeHandler} value={user.firstName} name='firstName' />
+                        <input type="text" onChange={changeHandler} value={user.first_name} name='first_name' />
                         {
-                            errors.firstName ?
+                            errors.first_name ?
                                 <p className='text-danger'>{errors.firstName.message}</p> :
                                 null
                         }
-                    </div>
-                    <br />
-                    <div>
                         <label>Last Name: </label>
-                        <input type="text" onChange={changeHandler} value={user.lastName} name='lastName' />
+                        <input type="text" onChange={changeHandler} value={user.last_name} name='last_name' />
                         {
-                            errors.lastName ?
+                            errors.last_name ?
                                 <p className='text-danger'>{errors.lastName.message}</p> :
                                 null
                         }
-                    </div>
-                    <br />
-                    <div>
+                
                         <label>Email: </label>
                         <input type="text" onChange={changeHandler} value={user.email} name='email' />
                         {
@@ -69,9 +55,8 @@ const Register = (props) => {
                                 <p className='text-danger'>{errors.email.message}</p> :
                                 null
                         }
-                    </div>
-                    <br />
-                    <div>
+                
+                
                         <label>Password: </label>
                         <input type="password" onChange={changeHandler} value={user.password} name='password' />
                         {
@@ -79,22 +64,13 @@ const Register = (props) => {
                                 <p className='text-danger'>{errors.password.message}</p> :
                                 null
                         }
-                    </div>
-                    <br />
-                    <div>
-                        <label>Confirm Password: </label>
-                        <input type="password" onChange={changeHandler} value={user.confirmPassword} name='confirmPassword' />
-                    </div>
-                    <br /> <br />
-                    <button>Register</button>
-                    <br />
-                </form>
+                
+                    <button className='btn'>Register</button>
+                    <Link to={'/login'} style={{ color: 'black' }}>Already have an account?</Link>
                 <br /> <br />
-                <Link to={'/login'} style={{ color: 'white' }}>Already have an account?</Link>
-                <br /> <br />
-                <Link style={{ color: 'white' }} to={'/'}>Home</Link>
+                <Link style={{ color: 'black' }} to={'/'}>Home</Link>                </form>
+               
             </div>
-        </div>
     )
 }
 

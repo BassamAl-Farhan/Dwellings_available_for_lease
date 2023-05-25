@@ -2,7 +2,7 @@
 from config.mysqlconnection import connectToMySQL
 mydb = 'groupproject'
 from flask import flash
-from models.users import user
+from models import users
 
 
 class Homes:
@@ -13,7 +13,6 @@ class Homes:
         self.city = data['city']
         self.state = data['state']
         self.description = data['description']
-        self.user_id = data['user_id']
         self.created_at = data['created_at']
 
 
@@ -35,28 +34,39 @@ class Homes:
         query = 'DELETE FROM homes WHERE id =%(id)s'
         return connectToMySQL(mydb).query_db(query, data)
 
+    # Homes.register() method in the models
     @classmethod
     def register(cls, data):
-        query ="""INSERT 
-        INTO homes 
-            (numberOfRooms, priceRange, city, 
-            state, description, user_id) 
+        # number_of_rooms = data.get('numberOfRooms')
+        # price_range = data.get('priceRange')
+        # city = data.get('city')
+        # description = data.get('description')
+        # state = data.get('state')
+
+        query = """
+        INSERT INTO homes 
+            (numberOfRooms, priceRange, city, state, description) 
         VALUES 
-            (%(numberOfRooms)s, %(priceRange)s, %(city)s, 
-            %(state)s, %(description)s, %(user_id)s);
+            (%(numberOfRooms)s, %(priceRange)s, %(city)s, %(state)s, %(description)s);
         """
         return connectToMySQL(mydb).query_db(query, data)
 
+
     @classmethod
-    def update_homes(cls, data):
+    def updateHome(cls, data):
+        # number_of_rooms = data.get('numberOfRooms')
+        # price_range = data.get('priceRange')
+        # city = data.get('city')
+        # description = data.get('description')
+        # state = data.get('state')
+        # id = data.get('id')
         query = """UPDATE homes
         SET 
             numberOfRooms = %(numberOfRooms)s,
             priceRange = %(priceRange)s,
             city = %(city)s,
             state = %(state)s,
-            description = %(description)s,
-            user_id = %(user_id)s
+            description = %(description)s
             
         WHERE 
             id = %(id)s

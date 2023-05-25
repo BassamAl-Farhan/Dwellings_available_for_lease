@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
+import '../App.css'
 
 const Dashboard = (props) => {
     const navigate = useNavigate()
@@ -18,18 +18,14 @@ const Dashboard = (props) => {
     return (
         <div className='DShell' >
             <div className='DBlock'>
-                <h1>Dojo Homes</h1>
+                <h1 className='dojotitle'>Dojo Homes</h1>
             </div>
             <div className='DBlock'>
-                <Link className='btn' to={'/createListing'}>Create Listing</Link>
+                <Link className='linkto' to={'/createListing'}>Create Listing</Link>
                 <hr />
-                <Link className='btn' to={'/allHomes'}>Home Library</Link>
+                <Link className='linkto' to={'/register'}>Register</Link>
                 <hr />
-                <Link className='btn' to={'/register'}>Register</Link>
-                <hr />
-                <Link className='btn' to={'/login'}>Login</Link>
-                <hr />
-                <button className='btn' onClick={logout}>Log out</button>
+                <button className='linktobtn' onClick={logout}>Log out</button>
             </div>
             
         </div>
